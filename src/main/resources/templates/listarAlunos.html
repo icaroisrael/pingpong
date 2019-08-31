@@ -15,7 +15,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
     
     
-    
+ <script type="text/javascript">
+// INICIO FUNÇÃO DE MASCARA MAIUSCULA
+function maiuscula(z){
+        v = z.value.toUpperCase();
+        z.value = v;
+    }
+//FIM DA FUNÇÃO MASCARA MAIUSCULA
+</script>   
 </head>
 <body>
 	<div class="container">
@@ -65,7 +72,7 @@
             	
     			<div class="form-group">
     				<label>Nome:</label>
-	    			<input type="text" name="nome" id="nome" placeholder="Nome" class="form-control"/>&nbsp;&nbsp;
+	    			<input type="text" name="nome" id="nome" placeholder="Nome" class="form-control" onkeyup="maiuscula(this)"/>
 	            	<label>Turma:</label>
 	            	<select name="turma" id="turma" class="form-control">
 	            		<option value="0">Selecione</option>
