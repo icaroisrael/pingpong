@@ -16,12 +16,19 @@
     
     
  <script type="text/javascript">
-// INICIO FUNÇÃO DE MASCARA MAIUSCULA
-function maiuscula(z){
-        v = z.value.toUpperCase();
-        z.value = v;
-    }
-//FIM DA FUNÇÃO MASCARA MAIUSCULA
+
+	function maiuscula(z){
+	        v = z.value.toUpperCase();
+	        z.value = v;
+	}
+	function valida()
+	       if (document.form1.sel.value=="")
+	         {
+	            window.alert("Escolha uma turma!");
+	            document.form1.sel.focus();
+	         }	  
+	   }
+
 </script>   
 </head>
 <body>
@@ -59,7 +66,7 @@ function maiuscula(z){
 	
 	<!-- Modal -->
       <div class="modal fade" id="telaModal" tabindex="-1" role="dialog">
-      <form class="form-inline" style="margin: 20px 0" method="POST" action="/save">
+      <form class="form-inline" style="margin: 20px 0" method="POST" action="/save" name="form1">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -74,7 +81,7 @@ function maiuscula(z){
     				<label>Nome:</label>
 	    			<input type="text" name="nome" id="nome" placeholder="Nome" class="form-control" onkeyup="maiuscula(this)"/>
 	            	<label>Turma:</label>
-	            	<select name="turma" id="turma" class="form-control">
+	            	<select name="turma" id="turma" class="form-control" onBlur="valida();">
 	            		<option value="0">Selecione</option>
 		            	<option value="1º ADM">1º ADM</option>
 		                <option value="1º AGR">1º AGR</option>
