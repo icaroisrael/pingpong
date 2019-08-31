@@ -22,10 +22,10 @@
 	        z.value = v;
 	}
 	function valida()
-	       if (document.form1.sel.value=="")
+	       if (document.turma.sel.value=="")
 	         {
 	            window.alert("Escolha uma turma!");
-	            document.form1.sel.focus();
+	            document.turma.sel.focus();
 	         }	  
 	   }
 
@@ -66,7 +66,7 @@
 	
 	<!-- Modal -->
       <div class="modal fade" id="telaModal" tabindex="-1" role="dialog">
-      <form class="form-inline" style="margin: 20px 0" method="POST" action="/save" name="form1">
+      <form class="form-inline" style="margin: 20px 0" method="POST" action="/save">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -109,79 +109,5 @@
         </div>
      </form>
       </div>
-      
-		
-		
-	
-	
-	
-	
-	
-	
-
-<!-- 
-    <div class="container">
-        <div class="panel-heading">
-            <h1 class="panel-title">Lista de Alunos</h1>
-        </div>
-        <div class="panel-body">        	
-    		
-        
-        	<table class="table table-hover">
-        		<thead class="thead-dark">
-        			<tr>
-        				<th>Código</th>
-        				<th>Nome</th>
-                        <th>Turma</th>
-                     <tr>
-                </thead>
-                	<tbody>
-                		<tr th:each="aluno : ${alunos}">
-                			<td th:text="${aluno.id}"></td>
-                        	<td th:text="${aluno.nome}"></td>
-                        	<td th:text="${aluno.turma}"></td>
-                        <tr>
-                    </tbody>
-            </table>
-        </div>
-    </div>   
-    
-    
-
- -->
-
-<!--
-    <form method="POST" action="/cadastro" th:object="${aluno}">
-        <table>
-            <tr>
-                <td><label>Nome</label></td>
-                <td><input type="text" name="nome" id="nome"/></td>
-            </tr>
-            <tr>
-                <td><label>Turma</label></td>
-                <td>
-                    <select name="turma" id="turma">
-                        <option value="1º ADM">1º ADM</option>
-                        <option value="1º AGR">1º AGR</option>
-                        <option value="1º FIN">1º FIN</option>
-                        <option value="1º INF">1º INF</option>
-                        <option value="2º ADM">2º ADM</option>
-                        <option value="2º AGR">2º AGR</option>
-                        <option value="2º FIN">2º FIN</option>
-                        <option value="2º INF">2º INF</option>
-                        <option value="3º AGR">3º AGRO</option>
-                        <option value="3º DCC">3º DCC</option>
-                        <option value="3º FIN">3º FIN</option>
-                        <option value="3º INF">3º INF</option>
-                    </select>
-                </td>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="Cadastrar"></td>
-                </tr>
-            </tr>
-        </table>        
-    </form>
--->    
 </body>
 </html>
