@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width"/>    
+    <title>Cadastros de  Alunos</title>
+    <!-- <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->  
+    <!-- <link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+    
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+    
+    
+    
+</head>
+<body>
+	<div class="container">
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#telaModal">
+        Novo
+</button>
+		<div class="card">
+			<div class="card-block">
+				<table class="table table-hover">
+        		<thead>
+        			<tr>
+        				<th>Código</th>
+        				<th>Nome</th>
+                        <th>Turma</th>
+                     <tr>
+                </thead>
+                	<tbody>
+                		<tr th:each="aluno : ${alunos}">
+                			<td th:text="${aluno.id}"></td>
+                        	<td th:text="${aluno.nome}"></td>
+                        	<td th:text="${aluno.turma}"></td>
+                        <tr>
+                    </tbody>
+            </table>
+            <ul class="nav nav-pills">
+            	<li class="nav-item" th:each="i : ${#numbers.sequence(0,alunos.totalPages-1)}">
+            		<a th:href="@{/(page=${i})}" th:text="${i}" class="nav-link" 
+            		th:classappend="${currentPage}==${i}?'active':''"></a>            	
+            	</li>
+            </ul>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+      <div class="modal fade" id="telaModal" tabindex="-1" role="dialog">
+      <form class="form-inline" style="margin: 20px 0" method="POST" action="/save">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Cadastro de Aluno</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            	
+    			<div class="form-group">
+    				<label>Nome:</label>
+	    			<input type="text" name="nome" id="nome" placeholder="Nome" class="form-control"/>&nbsp;&nbsp;
+	            	<label>Turma:</label>
+	            	<select name="turma" id="turma" class="form-control">
+	            		<option value="0">Selecione</option>
+		            	<option value="1º ADM">1º ADM</option>
+		                <option value="1º AGR">1º AGR</option>
+		                <option value="1º FIN">1º FIN</option>
+		                <option value="1º INF">1º INF</option>
+		                <option value="2º ADM">2º ADM</option>
+		                <option value="2º AGR">2º AGR</option>
+		                <option value="2º FIN">2º FIN</option>
+		                <option value="2º INF">2º INF</option>
+		                <option value="3º AGR">3º AGR</option>
+		                <option value="3º DCC">3º DCC</option>
+		                <option value="3º FIN">3º FIN</option>
+		                <option value="3º INF">3º INF</option>
+	            	</select>	            	 			
+    			</div>
+    			
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+          </div>
+          
+        </div>
+     </form>
+      </div>
+      
+		
+		
+	
+	
+	
+	
+	
+	
+
+<!-- 
+    <div class="container">
+        <div class="panel-heading">
+            <h1 class="panel-title">Lista de Alunos</h1>
+        </div>
+        <div class="panel-body">        	
+    		
+        
+        	<table class="table table-hover">
+        		<thead class="thead-dark">
+        			<tr>
+        				<th>Código</th>
+        				<th>Nome</th>
+                        <th>Turma</th>
+                     <tr>
+                </thead>
+                	<tbody>
+                		<tr th:each="aluno : ${alunos}">
+                			<td th:text="${aluno.id}"></td>
+                        	<td th:text="${aluno.nome}"></td>
+                        	<td th:text="${aluno.turma}"></td>
+                        <tr>
+                    </tbody>
+            </table>
+        </div>
+    </div>   
+    
+    
+
+ -->
+
+<!--
+    <form method="POST" action="/cadastro" th:object="${aluno}">
+        <table>
+            <tr>
+                <td><label>Nome</label></td>
+                <td><input type="text" name="nome" id="nome"/></td>
+            </tr>
+            <tr>
+                <td><label>Turma</label></td>
+                <td>
+                    <select name="turma" id="turma">
+                        <option value="1º ADM">1º ADM</option>
+                        <option value="1º AGR">1º AGR</option>
+                        <option value="1º FIN">1º FIN</option>
+                        <option value="1º INF">1º INF</option>
+                        <option value="2º ADM">2º ADM</option>
+                        <option value="2º AGR">2º AGR</option>
+                        <option value="2º FIN">2º FIN</option>
+                        <option value="2º INF">2º INF</option>
+                        <option value="3º AGR">3º AGRO</option>
+                        <option value="3º DCC">3º DCC</option>
+                        <option value="3º FIN">3º FIN</option>
+                        <option value="3º INF">3º INF</option>
+                    </select>
+                </td>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Cadastrar"></td>
+                </tr>
+            </tr>
+        </table>        
+    </form>
+-->    
+</body>
+</html>
