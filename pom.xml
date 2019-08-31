@@ -11,7 +11,7 @@
 	<groupId>com.br.eeep</groupId>
 	<artifactId>pingpong</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>pingpong</name>
 	<description>Projeto de repositorio de tcc</description>
 
