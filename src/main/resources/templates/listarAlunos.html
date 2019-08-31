@@ -22,12 +22,14 @@
 	        z.value = v;
 	}
 	function valida(){
-	       if (document.form1.sel.value=="")
-	         {
-	            window.alert("Escolha uma turma!");
-	            document.form1.sel.focus();
-	         }	  
-	   }
+	      if (document.form1.sel.options[sel.selectedIndex].value=="")
+	        {
+	           alert("Escolha uma Turma!");
+	           document.form1.sel.focus();
+	           return false;
+	        }
+	        return true;
+	  }
 
 </script>   
 </head>
