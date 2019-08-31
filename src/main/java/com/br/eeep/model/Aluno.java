@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Aluno {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	@NotNull(message = "nome é obrigatório")
 	@Column
