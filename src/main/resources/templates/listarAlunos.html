@@ -35,6 +35,8 @@
 </head>
 <body>
 	<div class="container">
+	<div class="alert alert-success" th:text="${mensagem}" th:if="${not #strings.isEmpty(mensagem)}">
+	</div>	
 	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#telaModal">
         Cadastro
 	</button>
@@ -45,6 +47,7 @@
         			<tr>
         				<th>Código</th>
         				<th>Nome</th>
+        				<th>Sexo</th>
                         <th>Turma</th>
                      <tr>
                 </thead>
@@ -52,6 +55,7 @@
                 		<tr th:each="aluno : ${alunos}">
                 			<td th:text="${aluno.id}"></td>
                         	<td th:text="${aluno.nome}"></td>
+                        	<td th:text="${aluno.sexo}"></td>
                         	<td th:text="${aluno.turma}"></td>
                         <tr>
                     </tbody>
@@ -77,30 +81,52 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-            	
-    			<div class="form-group">
-    				<label>Nome:</label>
-	    			<input type="text" name="nome" id="nome" placeholder="Nome" class="form-control" onkeyup="maiuscula(this)"/>
-	            	<label>Turma:</label>
-	            	<select name="turma" id="turma" class="form-control" onBlur="valida();">
-	            		<option value="0">Selecione</option>
-		            	<option value="1º ADM">1º ADM</option>
-		                <option value="1º AGR">1º AGR</option>
-		                <option value="1º FIN">1º FIN</option>
-		                <option value="1º INF">1º INF</option>
-		                <option value="2º ADM">2º ADM</option>
-		                <option value="2º AGR">2º AGR</option>
-		                <option value="2º FIN">2º FIN</option>
-		                <option value="2º INF">2º INF</option>
-		                <option value="3º AGR">3º AGR</option>
-		                <option value="3º DCC">3º DCC</option>
-		                <option value="3º FIN">3º FIN</option>
-		                <option value="3º INF">3º INF</option>
-	            	</select>	            	 			
-    			</div>
-    			
-              
+            <div class="modal-body">    			
+    				<div class="form-group">
+    					<label>Nome:</label><br>
+    					<input type="text" name="nome" id="nome" placeholder="Nome" size="40" class="form-control" onkeyup="maiuscula(this)"/>
+    				</div>
+    				<div class="form-group" >
+    					<table>
+    						<tr>
+    							<td><label>Sexo:</label></td>
+    							<td>
+    								<select name="sexo" id="sexo" class="form-control">
+                        				<option value="s">Selecione</option>
+                            			<option value="F">F</option>
+                            			<option value="M">M</option>
+                    				</select>
+                    			</td>
+    						</tr>
+    						<tr>
+    							<td>
+    								<label>Turma:</label>
+    							</td>
+    							<td>
+    								<select name="turma" id="turma" class="form-control" onBlur="valida();">
+					            		<option value="0">Selecione</option>
+						            	<option value="1º ADM">1º ADM</option>
+						                <option value="1º AGR">1º AGR</option>
+						                <option value="1º FIN">1º FIN</option>
+						                <option value="1º INF">1º INF</option>
+						                <option value="2º ADM">2º ADM</option>
+						                <option value="2º AGR">2º AGR</option>
+						                <option value="2º FIN">2º FIN</option>
+						                <option value="2º INF">2º INF</option>
+						                <option value="3º AGR">3º AGR</option>
+						                <option value="3º DCC">3º DCC</option>
+						                <option value="3º FIN">3º FIN</option>
+						                <option value="3º INF">3º INF</option>
+			            			</select>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td></td>
+    							<td></td>
+    						</tr>
+    					</table>                   	  
+                    </div>			     		            	 			
+    			              
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>

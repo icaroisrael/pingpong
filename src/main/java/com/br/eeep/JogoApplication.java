@@ -8,5 +8,4 @@ public class JogoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(JogoApplication.class, args);
 	}
-
 }

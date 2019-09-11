@@ -1,12 +1,18 @@
 package com.br.eeep.controller;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.br.eeep.model.Aluno;
 import com.br.eeep.repository.AlunoRepository;
 
@@ -25,9 +31,12 @@ public class ControllerCadastro {
     }
 	
 	@PostMapping("/save")
-    public String cadastro(Aluno aluno){		
-		alunoRepository.save(aluno);
-		return "redirect:/";
+    public ModelAndView cadastro(@Valid Aluno aluno, RedirectAttributes attributes){		
+		ModelAndView mv = new ModelAndView("redirect:/");		
+		alunoRepository.save(aluno);		
+		
+		attributes.addFlashAttribute("mensagem", "Aluno salvo com sucesso");
+		return mv;
     }
 	
 	@GetMapping("/delete")
