@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1 style="text-align:center">Feminino</h1>
+    <table>
+      <tr>
+        <th>NOME</th>
+        <th>TURMA</th>
+        <th>VERSUS</th>
+        <th>NOME</th>
+        <th>TURMA</th>
+      </tr>
+      <tr th:each="f, status: ${feminino}">
+        <td th:text="${f.nome}"></td>
+        <td th:text="${f.turma}"></td>
+        <td align="center"> X </td>
+        <td th:text="${f.nome}"></td>
+        <td th:text="${f.turma}"></td>
+      </tr>
+    </table>
+    <h1 style="text-align:center">3º Terceiros</h1>
+    <table>
+      <tr>
+        <th>NOME</th>
+        <th>TURMA</th>
+        <th>VERSUS</th>
+        <th>NOME</th>
+        <th>TURMA</th>
+      </tr>
+      <tr th:each="m : ${masculino}">
+        <td th:text="${m.nome}">MARIA</td>
+        <td th:text="${m.turma}">2º INF</td>
+        <td> X </td>
+        <td th:text="${m.nome}">TEREZA</td>
+        <td th:text="${m.turma}">2º INF</td>
+      </tr>
+    </table>
+    
+    <h1 style="text-align:center">Todos</h1>
+    <table>
+      <tr>
+        <th>NOME</th>
+        <th>TURMA</th>
+        <th>VERSUS</th>
+        <th>NOME</th>
+        <th>TURMA</th>
+      </tr>
+      <tr th:each="t : ${todos}">
+        <td th:text="${t.nome}">MARIA</td>
+        <td th:text="${t.turma}">2º INF</td>
+        <td> X </td>
+        <td th:text="${t.nome}">TEREZA</td>
+        <td th:text="${t.turma}">2º INF</td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -25,7 +25,7 @@ public class ControllerCadastro {
 	
 	@GetMapping("/")
 	public String home(Model model,@RequestParam(defaultValue="0") int page){
-		model.addAttribute("alunos", alunoRepository.findAll(new PageRequest(page,5)));
+		model.addAttribute("alunos", alunoRepository.findAll(new PageRequest(page,10)));
 		model.addAttribute("currentPage", page);
 		return "listarAlunos";
     }
