@@ -2,18 +2,63 @@
       xmlns:th="http://www.thymeleaf.org" >
   <head>
     <title>Sorteio</title>
+    <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
     <style>
-    	container{widh:100%; background-color:red}
+        /*Começa aqui*/
+        *{
+        	padding: 0;
+        	margin: 0;
+        	box-sizing: border-box;
+        	font-family: 'Squada One', cursive;
+        }
+        .header{
+        	width: 500px;
+        	margin: 20px auto;
+        	border-bottom: 4px solid #21B362;
+        	text-align: center;
+        	font-size: 23px;
+        	padding-bottom: 10px;
+        	color: #21B362;
+        }
+    	.container{
+    		width: 100%;
+    		background-color: #21B362;
+    		padding: 0px 0px 40px;
+    		text-align: center;
+    	}
+    	.clear{
+    		clear: both;
+    	}
+    	.tabela{
+    		width: 800px;
+    		margin-top: 50px;
+    		padding: 10px;
+    		background-color: #fff;
+    		display: inline-block;
+    	}
+    	.tabela h1{
+    		color: #21B362;
+    		padding-bottom: 10px;
+    	}
+    	footer{
+    		text-align: center;
+    		padding: 10px;
+    		color: #21B362;
+    		font-size: 20px;
+    	}
+    	/*Termina aqui*/
     	.a{
     		float:left;
-    		width:35%;
-    		background-color: red;        	
+    		width:35%; 
+    		padding:  5px 10px;
+    		font-size: 20px;    	
     	}
 
     	.b{
     		float:left;
     		width:10%;
-    		background-color: yellow;
+    		padding:  5px 10px;
+    		font-size: 20px;
     	}
 
 
@@ -21,7 +66,7 @@
     		float:left;
     		width:5%;
     	}
-    	#espaco{width:50px}
+    	#espaco{width:50px;}
 
 
 
@@ -29,50 +74,53 @@
 
 </head>
   <body>
-    <h1 style="text-align:center">Feminino</h1>    	
+  	 <div class="header">
+  	 	<h2>Sorteio de ping pong</h2>
+  	 </div>
+  	<div class="container">
+  		 <div class="tabela">
+           <h1 style="text-align:center">Feminino</h1>
+
 	        <div th:each="f, valor : ${feminino}" >
 	              <div class="a">
-	                  <span th:text="${f.nome}"></span>
+	                  <span th:text="${f.nome}">Fabricio</span>
 	              </div>             
 	              <div class="b">
-	                <span th:text="${f.turma}" ></span>	 
+	                <span th:text="${f.turma}" >1° Infor</span>	 
 	                <span id="espaco" th:text="${valor.odd}?'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspX'"></span>                               
 	              </div>	                          
 	        </div>
+	      </div> 
 	        
-	        
-	        
-	 <h1 style="text-align:center">Masculino 3º Anos</h1>    	
+	      <div class="tabela">  
+	        <h1 style="text-align:center">Masculino 3º Anos</h1>    	
 	        <div th:each="m, valor : ${masculino}" >
 	              <div class="a">
-	                  <span th:text="${m.nome}"></span>
+	                  <span th:text="${m.nome}">Fabricio</span>
 	              </div>             
 	              <div class="b">
-	                <span th:text="${m.turma}" ></span>	 
+	                <span th:text="${m.turma}" >1° Infor</span>	 
 	                <span id="espaco" th:text="${valor.odd}?'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspX'"></span>                               
 	              </div>	                          
 	        </div>
+	     </div>   
 	        
-	        
-	    
-	  <h1 style="text-align:center"> Masculino 1º e 2º Anos</h1>    	
+	   <br><br>  
+	   	<div class="tabela">
+	        <h1 style="text-align:center"> Masculino 1º e 2º Anos</h1>    	
 	        <div th:each="t, valor : ${todos}" >
 	              <div class="a">
-	                  <span th:text="${t.nome}"></span>
+	                  <span th:text="${t.nome}">Fabricio</span>
 	              </div>             
 	              <div class="b">
-	                <span th:text="${t.turma}" ></span>	 
+	                <span th:text="${t.turma}" >1° Infor</span>	 
 	                <span id="espaco" th:text="${valor.odd}?'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspX'"></span>                               
 	              </div>	                          
 	        </div>
-    
+	    </div>
+	     <div class="clear"></div>
+    </div>
 
-
-
-
-
-
-
-   
+    <footer>&copy;Todos os direitos Resevados</footer>
   </body>
 </html>

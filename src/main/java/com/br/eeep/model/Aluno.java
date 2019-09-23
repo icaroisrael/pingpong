@@ -8,16 +8,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Aluno implements Comparable<Aluno> {
-	
-	@Override public int compareTo(Aluno outroAluno) { 
-		if (this.id > outroAluno.getId()) { 
-			  return -1; 
-			  } if (this.id < outroAluno.getId()) { 
-			  return 1; 
-			  } 
-			  return 0; 
-	}
+public class Aluno implements Comparable<Aluno> {	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
@@ -56,5 +47,14 @@ public class Aluno implements Comparable<Aluno> {
 	}
 	public void setTurma(String turma) {
 		this.turma = turma;
+	}
+	
+	@Override public int compareTo(Aluno outroAluno) { 
+		if (this.id > outroAluno.getId()) { 
+			  return -1; 
+		} if (this.id < outroAluno.getId()) { 
+			  return 1; 
+		} 
+			  return 0; 
 	}
 }
