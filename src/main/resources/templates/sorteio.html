@@ -1,61 +1,78 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" >
   <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
+    <title>Sorteio</title>
+    <style>
+    	container{widh:100%; background-color:red}
+    	.a{
+    		float:left;
+    		width:35%;
+    		background-color: red;        	
+    	}
+
+    	.b{
+    		float:left;
+    		width:10%;
+    		background-color: yellow;
+    	}
+
+
+    	#c{
+    		float:left;
+    		width:5%;
+    	}
+    	#espaco{width:50px}
+
+
+
+    </style>
+
+</head>
   <body>
-    <h1 style="text-align:center">Feminino</h1>
-    <table>
-      <tr>
-        <th>NOME</th>
-        <th>TURMA</th>
-        <th>VERSUS</th>
-        <th>NOME</th>
-        <th>TURMA</th>
-      </tr>
-      <tr th:each="f, status: ${feminino}">
-        <td th:text="${f.nome}"></td>
-        <td th:text="${f.turma}"></td>
-        <td align="center"> X </td>
-        <td th:text="${f.nome}"></td>
-        <td th:text="${f.turma}"></td>
-      </tr>
-    </table>
-    <h1 style="text-align:center">3º Terceiros</h1>
-    <table>
-      <tr>
-        <th>NOME</th>
-        <th>TURMA</th>
-        <th>VERSUS</th>
-        <th>NOME</th>
-        <th>TURMA</th>
-      </tr>
-      <tr th:each="m : ${masculino}">
-        <td th:text="${m.nome}">MARIA</td>
-        <td th:text="${m.turma}">2º INF</td>
-        <td> X </td>
-        <td th:text="${m.nome}">TEREZA</td>
-        <td th:text="${m.turma}">2º INF</td>
-      </tr>
-    </table>
+    <h1 style="text-align:center">Feminino</h1>    	
+	        <div th:each="f, valor : ${feminino}" >
+	              <div class="a">
+	                  <span th:text="${f.nome}"></span>
+	              </div>             
+	              <div class="b">
+	                <span th:text="${f.turma}" ></span>	 
+	                <span id="espaco" th:text="${valor.odd}?'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspX'"></span>                               
+	              </div>	                          
+	        </div>
+	        
+	        
+	        
+	 <h1 style="text-align:center">Masculino 3º Anos</h1>    	
+	        <div th:each="m, valor : ${masculino}" >
+	              <div class="a">
+	                  <span th:text="${m.nome}"></span>
+	              </div>             
+	              <div class="b">
+	                <span th:text="${m.turma}" ></span>	 
+	                <span id="espaco" th:text="${valor.odd}?'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspX'"></span>                               
+	              </div>	                          
+	        </div>
+	        
+	        
+	    
+	  <h1 style="text-align:center"> Masculino 1º e 2º Anos</h1>    	
+	        <div th:each="t, valor : ${todos}" >
+	              <div class="a">
+	                  <span th:text="${t.nome}"></span>
+	              </div>             
+	              <div class="b">
+	                <span th:text="${t.turma}" ></span>	 
+	                <span id="espaco" th:text="${valor.odd}?'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspX'"></span>                               
+	              </div>	                          
+	        </div>
     
-    <h1 style="text-align:center">Todos</h1>
-    <table>
-      <tr>
-        <th>NOME</th>
-        <th>TURMA</th>
-        <th>VERSUS</th>
-        <th>NOME</th>
-        <th>TURMA</th>
-      </tr>
-      <tr th:each="t : ${todos}">
-        <td th:text="${t.nome}">MARIA</td>
-        <td th:text="${t.turma}">2º INF</td>
-        <td> X </td>
-        <td th:text="${t.nome}">TEREZA</td>
-        <td th:text="${t.turma}">2º INF</td>
-      </tr>
-    </table>
+
+
+
+
+
+
+
+   
   </body>
 </html>

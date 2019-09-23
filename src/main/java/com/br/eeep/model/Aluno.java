@@ -8,7 +8,16 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Aluno {
+public class Aluno implements Comparable<Aluno> {
+	
+	@Override public int compareTo(Aluno outroAluno) { 
+		if (this.id > outroAluno.getId()) { 
+			  return -1; 
+			  } if (this.id < outroAluno.getId()) { 
+			  return 1; 
+			  } 
+			  return 0; 
+	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
