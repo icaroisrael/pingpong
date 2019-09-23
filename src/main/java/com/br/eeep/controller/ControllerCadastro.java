@@ -24,11 +24,14 @@ public class ControllerCadastro {
 	private AlunoRepository alunoRepository;	
 	
 	@GetMapping("/")
-	public String home(Model model,@RequestParam(defaultValue="0") int page){
+	public String home() {
+		return "redirect:/sorteio";
+	}
+	/*public String home(Model model,@RequestParam(defaultValue="0") int page){
 		model.addAttribute("alunos", alunoRepository.findAll(new PageRequest(page,10)));
 		model.addAttribute("currentPage", page);
 		return "listarAlunos";
-    }
+    }*/
 	
 	@PostMapping("/save")
     public ModelAndView cadastro(@Valid Aluno aluno, RedirectAttributes attributes){		
